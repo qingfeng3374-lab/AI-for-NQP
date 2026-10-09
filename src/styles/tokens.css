@@ -1,0 +1,150 @@
+/* =========================================================
+   设计令牌（Design Tokens）—— 夜间 / 日间双主题
+   - 夜间：深空蓝底 + 电光青紫，沉浸、科技感
+   - 日间：冷白底 + 高对比墨色文字 + 电光蓝→霓虹紫→洋红渐变，强调冲击力
+   图表分类色板两套均经色觉障碍（CVD）校验：相邻对 ΔE ≥ 8，前 3 色全配对通过。
+   切换方式：<html data-theme="dark|light">（由 lib/stores/theme.svelte.js 控制）
+   ========================================================= */
+
+/* ---------- 通用（与主题无关） ---------- */
+:root {
+  --font-sans: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, 'SFMono-Regular', monospace;
+
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --content-w: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+
+  /* 状态色（保留，不作为系列色使用） */
+  --good: #0ca30c;
+  --warning: #fab219;
+  --critical: #d03b3b;
+}
+
+/* ---------- 夜间主题（默认） ---------- */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --page: #070b14;
+  --surface-1: #0f1626;
+  --surface-2: #151e33;
+  --surface-3: #1c2740;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text-1: #f2f5fa;
+  --text-2: #aab4c8;
+  --text-3: #7d89a1;
+
+  --grid: #1c2740;
+  --axis: #2e3b58;
+  --halo: #0f1626; /* 文字描边 / 数据点外环 = 卡片表面色 */
+  --empty: #1c2740;
+  --muted-mark: #3a4a6b;
+
+  --accent: #34d4ff;
+  --accent-2: #8b7cf6;
+  --accent-rgb: 52, 212, 255;
+  --accent2-rgb: 139, 124, 246;
+  --accent-grad: linear-gradient(100deg, #34d4ff 0%, #6aa8ff 45%, #8b7cf6 100%);
+  --num-grad: linear-gradient(180deg, rgba(52, 212, 255, 0.9), rgba(139, 124, 246, 0.15));
+  --glow: 0 0 40px rgba(52, 212, 255, 0.18);
+
+  --card-bg: linear-gradient(180deg, rgba(21, 30, 51, 0.9), rgba(15, 22, 38, 0.95));
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 40px rgba(0, 0, 0, 0.25);
+  --panel-bg: rgba(7, 11, 20, 0.4);
+  --glass: rgba(15, 22, 38, 0.86);
+  --nav-bg: rgba(7, 11, 20, 0.78);
+  --tooltip-bg: rgba(21, 30, 51, 0.96);
+  --hover-wash: rgba(255, 255, 255, 0.04);
+  --accent-wash: rgba(52, 212, 255, 0.1);
+
+  --warn-text: #f0a27c;
+  --warn-bg: rgba(224, 112, 58, 0.06);
+  --warn-border: rgba(224, 112, 58, 0.25);
+  --violet-text: #b8aefc;
+  --violet-wash: rgba(139, 124, 246, 0.16);
+  --green-text: #5fd3a5;
+  --green-bg: rgba(31, 158, 110, 0.06);
+  --green-border: rgba(31, 158, 110, 0.22);
+  --pos-text: #5fc3e3;
+
+  --bg-glow-1: rgba(139, 124, 246, 0.1);
+  --bg-glow-2: rgba(52, 212, 255, 0.06);
+  --bg-grid: rgba(255, 255, 255, 0.018);
+
+  --series-1: #1898c2;
+  --series-2: #e0703a;
+  --series-3: #8b7cf6;
+  --series-4: #1f9e6e;
+  --series-5: #b8890f;
+  --series-6: #e0609a;
+  --series-7: #4a7ff0;
+  --series-8: #e05a5a;
+}
+
+/* ---------- 日间主题 ---------- */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --page: #eef2f8;
+  --surface-1: #ffffff;
+  --surface-2: #f4f6fb;
+  --surface-3: #e6ebf3;
+  --border: rgba(15, 30, 70, 0.09);
+  --border-strong: rgba(15, 30, 70, 0.18);
+
+  --text-1: #0a0f1f;
+  --text-2: #3b4560;
+  --text-3: #68728b;
+
+  --grid: #e6eaf1;
+  --axis: #c2cad8;
+  --halo: #ffffff;
+  --empty: #e3e8f1;
+  --muted-mark: #c5cedd;
+
+  --accent: #0b63ff;
+  --accent-2: #7b2ff7;
+  --accent-rgb: 11, 99, 255;
+  --accent2-rgb: 123, 47, 247;
+  --accent-grad: linear-gradient(100deg, #0b63ff 0%, #7b2ff7 55%, #ff2e7e 100%);
+  --num-grad: linear-gradient(180deg, #0b63ff 10%, #7b2ff7 60%, #ff2e7e 110%);
+  --glow: 0 0 40px rgba(11, 99, 255, 0.15);
+
+  --card-bg: linear-gradient(180deg, #ffffff, #fbfcfe);
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 14px 34px rgba(20, 40, 90, 0.09);
+  --panel-bg: #f4f6fb;
+  --glass: rgba(255, 255, 255, 0.9);
+  --nav-bg: rgba(255, 255, 255, 0.82);
+  --tooltip-bg: rgba(255, 255, 255, 0.97);
+  --hover-wash: rgba(15, 30, 70, 0.04);
+  --accent-wash: rgba(11, 99, 255, 0.08);
+
+  --warn-text: #c2410c;
+  --warn-bg: rgba(229, 95, 28, 0.06);
+  --warn-border: rgba(229, 95, 28, 0.28);
+  --violet-text: #6d28d9;
+  --violet-wash: rgba(123, 47, 247, 0.1);
+  --green-text: #047857;
+  --green-bg: rgba(15, 138, 89, 0.06);
+  --green-border: rgba(15, 138, 89, 0.24);
+  --pos-text: #0b6f99;
+
+  --bg-glow-1: rgba(123, 47, 247, 0.1);
+  --bg-glow-2: rgba(11, 99, 255, 0.09);
+  --bg-grid: rgba(15, 30, 70, 0.035);
+
+  --series-1: #0b87b8;
+  --series-2: #e55f1c;
+  --series-3: #6a4be3;
+  --series-4: #0f8a59;
+  --series-5: #c98b00;
+  --series-6: #d9407f;
+  --series-7: #2a62dc;
+  --series-8: #d63a3a;
+}

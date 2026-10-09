@@ -1,0 +1,68 @@
+// AI 时光轴：1943—2025 年人工智能关键里程碑（公开史料整理）
+// lane：algo 算法突破 | infra 算力与数据 | app 标志性应用 | cn 中国进展 | policy 政策治理
+
+export const LANES = [
+  { id: 'algo', name: '算法突破', slot: 2 },
+  { id: 'infra', name: '算力与数据', slot: 6 },
+  { id: 'app', name: '标志性应用', slot: 0 },
+  { id: 'cn', name: '中国进展', slot: 1 },
+  { id: 'policy', name: '政策与治理', slot: 4 },
+];
+
+// 发展阶段背景带
+export const ERAS = [
+  { name: '萌芽期', start: 1943, end: 1956 },
+  { name: '符号主义黄金期', start: 1956, end: 1974 },
+  { name: '第一次寒冬', start: 1974, end: 1980, winter: true },
+  { name: '专家系统', start: 1980, end: 1987 },
+  { name: '第二次寒冬', start: 1987, end: 1993, winter: true },
+  { name: '统计学习', start: 1993, end: 2012 },
+  { name: '深度学习', start: 2012, end: 2020 },
+  { name: '大模型时代', start: 2020, end: 2026.5 },
+];
+
+export const MILESTONES = [
+  { date: 1943, lane: 'algo', title: 'M-P 神经元模型', desc: '麦卡洛克与皮茨提出人工神经元的数学模型，奠定神经网络理论基础。', major: true },
+  { date: 1950, lane: 'algo', title: '图灵测试', desc: '图灵发表《计算机器与智能》，提出"机器能思考吗"与图灵测试。', major: true },
+  { date: 1956.6, lane: 'policy', title: '达特茅斯会议', desc: '麦卡锡、明斯基等人首次提出"人工智能"一词，AI 作为学科正式诞生。', major: true },
+  { date: 1958, lane: 'algo', title: '感知机', desc: '罗森布拉特提出感知机，第一个可学习的神经网络模型。' },
+  { date: 1966, lane: 'app', title: 'ELIZA 聊天程序', desc: 'MIT 开发的早期对话程序，模拟心理治疗师。' },
+  { date: 1969, lane: 'algo', title: '《感知机》一书', desc: '明斯基指出单层感知机的局限，神经网络研究陷入低谷。' },
+  { date: 1980, lane: 'app', title: '专家系统商业化', desc: 'XCON 等专家系统在企业中应用，AI 迎来第一次产业热潮。' },
+  { date: 1986, lane: 'algo', title: '反向传播算法', desc: '鲁梅尔哈特、辛顿等推广反向传播，多层神经网络得以训练。', major: true },
+  { date: 1989, lane: 'algo', title: '卷积神经网络 LeNet', desc: '杨立昆将卷积网络用于手写数字识别。' },
+  { date: 1997.3, lane: 'algo', title: 'LSTM', desc: '长短期记忆网络提出，序列建模能力大幅提升。' },
+  { date: 1997.4, lane: 'app', title: '深蓝战胜卡斯帕罗夫', desc: 'IBM 深蓝在国际象棋比赛中击败世界冠军。', major: true },
+  { date: 2006, lane: 'algo', title: '"深度学习"复兴', desc: '辛顿提出深度信念网络的逐层预训练方法，深度学习概念兴起。' },
+  { date: 2007, lane: 'infra', title: 'CUDA 通用 GPU 计算', desc: 'GPU 通用计算平台发布，为深度学习提供了算力基础。' },
+  { date: 2009, lane: 'infra', title: 'ImageNet 数据集', desc: '超千万张标注图像的数据集发布，"数据驱动"成为 AI 主线。', major: true },
+  { date: 2011, lane: 'app', title: 'Watson 与 Siri', desc: 'IBM Watson 赢得智力竞赛节目；苹果发布语音助手 Siri。' },
+  { date: 2012.75, lane: 'algo', title: 'AlexNet', desc: '深度卷积网络在 ImageNet 竞赛中大幅领先，深度学习时代开启。', major: true },
+  { date: 2014, lane: 'algo', title: '生成对抗网络 GAN', desc: '古德费洛提出 GAN，生成式模型迈出关键一步。' },
+  { date: 2015.9, lane: 'algo', title: 'ResNet 超越人类识图', desc: '残差网络在 ImageNet 上的错误率低于人类水平。' },
+  { date: 2016.2, lane: 'app', title: 'AlphaGo 战胜李世石', desc: '以 4:1 击败围棋世界冠军，引发全球对 AI 的关注。', major: true },
+  { date: 2017.45, lane: 'algo', title: 'Transformer', desc: '《Attention Is All You Need》提出 Transformer 架构，成为大模型的基石。', major: true },
+  { date: 2017.55, lane: 'policy', title: '《新一代人工智能发展规划》', desc: '国务院印发，提出到 2030 年成为世界主要 AI 创新中心的"三步走"目标。', major: true },
+  { date: 2018.8, lane: 'algo', title: 'BERT 与 GPT-1', desc: '预训练 + 微调范式确立，自然语言理解能力跃升。' },
+  { date: 2019.8, lane: 'policy', title: '数据成为生产要素', desc: '党的十九届四中全会首次将数据列为生产要素。' },
+  { date: 2020.4, lane: 'algo', title: 'GPT-3', desc: '1750 亿参数，展现"少样本学习"与规模效应。', major: true },
+  { date: 2020.9, lane: 'app', title: 'AlphaFold 2', desc: '蛋白质结构预测达到实验精度，AI for Science 标志性突破。', major: true },
+  { date: 2021.3, lane: 'cn', title: '盘古、文心等大模型', desc: '国内科研机构与企业陆续发布千亿级参数预训练模型。' },
+  { date: 2022.15, lane: 'infra', title: '"东数西算"全面启动', desc: '8 大国家算力枢纽、10 大数据中心集群获批建设。', major: true },
+  { date: 2022.6, lane: 'app', title: 'Stable Diffusion', desc: '开源文生图模型发布，生成式 AI 走向大众。' },
+  { date: 2022.9, lane: 'app', title: 'ChatGPT 发布', desc: '两个月用户破亿，生成式 AI 进入大众应用时代。', major: true },
+  { date: 2022.95, lane: 'policy', title: '"数据二十条"', desc: '构建数据产权、流通交易、收益分配、安全治理制度。' },
+  { date: 2023.2, lane: 'algo', title: 'GPT-4', desc: '多模态大模型，在多项专业考试中达到人类前列水平。' },
+  { date: 2023.21, lane: 'cn', title: '文心一言等国产大模型', desc: '国内大模型密集发布，"百模大战"开启。' },
+  { date: 2023.62, lane: 'policy', title: '《生成式 AI 服务管理暂行办法》', desc: '全球较早的生成式 AI 专门规章，确立备案制度。' },
+  { date: 2023.7, lane: 'policy', title: '提出"新质生产力"', desc: '习近平总书记在黑龙江考察时首次提出"加快形成新质生产力"。', major: true },
+  { date: 2024.15, lane: 'app', title: 'Sora 视频生成', desc: '文生视频模型展示对物理世界的模拟能力。' },
+  { date: 2024.2, lane: 'policy', title: '开展"人工智能+"行动', desc: '政府工作报告首次提出开展"人工智能+"行动。' },
+  { date: 2024.38, lane: 'cn', title: '大模型价格战', desc: 'DeepSeek-V2、豆包等大幅降价，推理成本降至"厘"时代。' },
+  { date: 2024.7, lane: 'algo', title: '推理模型 o1', desc: '"慢思考"推理模型在数学、科学难题上显著提升。' },
+  { date: 2024.77, lane: 'app', title: 'AI 研究获诺贝尔奖', desc: '诺贝尔物理学奖授予神经网络奠基研究，化学奖授予 AlphaFold 等蛋白质研究。', major: true },
+  { date: 2025.05, lane: 'cn', title: 'DeepSeek-R1 开源', desc: '以较低训练成本实现接近前沿的推理能力，全球开源生态影响深远。', major: true },
+  { date: 2025.55, lane: 'app', title: 'AI 达到 IMO 金牌水平', desc: '大模型在国际数学奥林匹克竞赛中取得金牌水平成绩。' },
+  { date: 2025.65, lane: 'policy', title: '"人工智能+"行动意见', desc: '国务院印发，明确 2027、2030、2035 年三阶段目标。', major: true },
+  { date: 2025.7, lane: 'policy', title: 'AI 生成内容标识办法施行', desc: '要求对 AI 生成合成内容添加显式与隐式标识。' },
+];
